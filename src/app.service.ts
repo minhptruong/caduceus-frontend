@@ -1,5 +1,5 @@
 import type { IApp } from "./app.interface";
-import type { Query, ApiResponse, QueryResult, QueryResultRequest, QueryData, QueryDataRequest } from "./app.model";
+import type { Query, ApiResponse, QueryResult, QueryResultRequest, QueryData, QueryDataRequest, PatientInfo } from "./app.model";
 
 class AppService implements IApp {
     private readonly BASE_URL: string = "http://caduceus-load-balancer-871202212.us-east-1.elb.amazonaws.com/"
@@ -24,6 +24,10 @@ class AppService implements IApp {
 
     async fetchQueryData(request: QueryDataRequest): Promise<ApiResponse<QueryData[]>> {
         return await this.postData<QueryDataRequest, QueryData[]>({ endpoint: "query-list", body: request })
+    }
+
+    async fetchPatient(patientId: string): Promise<ApiResponse<PatientInfo>> {
+        return await this.postData<{ patient_id: string}, PatientInfo>({ endpoint: "patient", body: { patient_id: patientId }})
     }
 }
 

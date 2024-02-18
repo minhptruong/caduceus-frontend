@@ -2,6 +2,7 @@
     import { Route } from "svelte-routing";
     import Query from "./query.svelte";
     import QueryList from "./QueryList.svelte";
+    import PatientDetails from "./PatientDetail.svelte"
 </script>
 
 <div class="home">
@@ -14,6 +15,9 @@
         </Route>
         <Route path="/query/:queryId" let:params>
             <Query queryId={params.queryId} />
+        </Route>
+        <Route path="/patient/:patientId" let:params>
+            <PatientDetails patientId={params.patientId} />
         </Route>
     </div>
 </div>

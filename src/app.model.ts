@@ -20,6 +20,7 @@ export type PatientInfo = {
     first_name: string
     gender: string
     birth_year: number
+    subject_id: number
 } & Record<string, any | null>
 
 export interface QueryResultRequest {
