@@ -1,10 +1,11 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-  import Home from './views/home/home.svelte';
+  import { Router } from "svelte-routing";
+  import Home from "./Home.svelte";
+  export let url = "";
 </script>
 
 <main>
-<Home />
+  <Router {url}>
+      <Home />
+  </Router>
 </main>
